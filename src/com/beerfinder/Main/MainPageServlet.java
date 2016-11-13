@@ -1,6 +1,7 @@
 package com.beerfinder.Main;
 
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +17,8 @@ import java.io.PrintWriter;
 public class MainPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 
-        PrintWriter out = response.getWriter();
-        out.println("Main Page");
-
+        dispatcher.forward(request,response);
     }
 }
