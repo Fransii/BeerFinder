@@ -10,9 +10,9 @@
   <head>
     <title>$Title$</title>
 
-    <jsp:include page="assets/css/bootstrap.min.css"/>
-    <jsp:include page="assets/css/bootstrap-theme.min.css"/>
-    <jsp:include page="assets/js/bootstrap.min.js"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.min.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
   <style>
     body {
@@ -37,11 +37,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/MainPage">BeerFinder</a>
+        <a class="navbar-brand" href="/">BeerFinder</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/MainPage">Home</a></li>
+          <li class="active"><a href="/">Home</a></li>
           <li><a href="aboutPage.jsp">About</a></li>
           <li><a href="contactPage.jsp">Contact</a></li>
         </ul>

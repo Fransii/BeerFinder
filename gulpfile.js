@@ -5,12 +5,18 @@ var gulp = require('gulp');
 
 gulp.task('css', function () {
     return gulp.src("./node_modules/bootstrap/dist/css/*.css")
-        .pipe(gulp.dest("web/assets/css"));
+        .pipe(gulp.dest("web/resources/css"));
 });
 
 gulp.task('js', function () {
     return gulp.src("./node_modules/bootstrap/dist/js/*.js")
-        .pipe(gulp.dest("web/assets/js"));
+        .pipe(gulp.dest("web/resources/js"));
 });
 
-gulp.task('build', ['css', 'js']);
+gulp.task('font', function () {
+    return gulp.src("./node_modules/bootstrap/dist/fonts/*")
+        .pipe(gulp.dest("web/resources/fonts"));
+});
+
+
+gulp.task('build', ['css', 'js', 'font']);
