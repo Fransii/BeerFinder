@@ -10,11 +10,16 @@
   <head>
     <title>$Title$</title>
 
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.min.css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="resources/bootstrap/css/bootstrap-theme.min.css" />
+    <script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script>
 
-  <style>
+      <style type="text/css">
+          <%@include file="resources/bootstrap/css/bootstrap.css" %>
+          <%@include file="resources/bootstrap/css/bootstrap-theme.css" %>
+      </style>
+
+    <style>
     body {
       padding-top: 50px;
     }
@@ -42,8 +47,8 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Home</a></li>
-          <li><a href="aboutPage.jsp">About</a></li>
-          <li><a href="contactPage.jsp">Contact</a></li>
+          <li><a href="jsp/aboutPage.jsp">About</a></li>
+          <li><a href="jsp/contactPage.jsp">Contact</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
