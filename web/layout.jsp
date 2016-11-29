@@ -10,14 +10,10 @@
   <head>
     <title>$Title$</title>
 
-    <link type="text/css" rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="resources/bootstrap/css/bootstrap-theme.min.css" />
-    <script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script>
-
-      <style type="text/css">
-          <%@include file="resources/bootstrap/css/bootstrap.css" %>
-          <%@include file="resources/bootstrap/css/bootstrap-theme.css" %>
-      </style>
+    <style type="text/css">
+        <%@include file="resources/bootstrap/css/bootstrap.min.css" %>
+        <%@include file="resources/bootstrap/css/bootstrap-theme.min.css" %>
+    </style>
 
     <style>
     body {
@@ -63,14 +59,9 @@
 
   </div><!-- /.container -->
 
-
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-  <script src="../../dist/js/bootstrap.min.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  <script type="text/javascript">
+    <%@include file="resources/libs/js/jquery.min.js" %>
+    <%@include file="resources/bootstrap/js/bootstrap.min.js" %>
+  </script>
   </body>
 </html>
