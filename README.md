@@ -17,3 +17,6 @@ Web application that allows find beer with best price in your location.
   gulp build
  ```
   
+
+
+![work](http://skillprogramming.com/images/pictuers/group_projects_be_like.gif)
