@@ -69,6 +69,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>WelcomePageServlet</servlet-name>
+        <servlet-class>com.beerfinder.Main.WelcomePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WelcomePageServlet</servlet-name>
+        <url-pattern>/WelcomePageServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

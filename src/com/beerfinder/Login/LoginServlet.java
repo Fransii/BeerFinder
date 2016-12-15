@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDAO userDAO = new UserDAO();
         Map<String, String> errors = new HashMap<String, String>();
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/loginPage.jsp");
+        RequestDispatcher dispatcher;
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("email",email);
             response.sendRedirect("/MainPageServlet");
+            return;
         }else if(userDAO.isEmailUsed(email)){
             errors.put("wrong", "Wrong email or password!");
             dispatcher = request.getRequestDispatcher("WEB-INF/loginPage.jsp");

@@ -30,7 +30,8 @@ public class RegistrationServlet extends HttpServlet {
 
         if(userDAO.addUser(firstName,lastName,email,password))
         {
-            dispatcher = request.getRequestDispatcher("WEB-INF/welcomePage.jsp");
+            response.sendRedirect("/WelcomePageServlet");
+            return;
         }else
         {
             errors.put("email", "Email already exist!");
