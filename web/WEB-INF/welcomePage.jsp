@@ -72,7 +72,7 @@
 <div class="container" style="text-align:center;width: 350px;height: 100px;margin: auto;margin-top: 100px;">
 
 
-    <h3 style="color:#2a75c8"><b>
+    <h3 style="color: #2a75c8"><b>
         Registration successful!
         <br>
         <h2>Welcome!</h2>

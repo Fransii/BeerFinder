@@ -70,7 +70,7 @@
     </div>
 </nav>
 
-<div class="container" style="text-align:center;width: 300px;height: 100px;margin: auto;margin-top: 100px;">
+<div class="container" style=" text-align:center;width: 300px;height: 100px;margin: auto;margin-top: 100px;">
 
     <div>
         <h3 style="color:#2a75c8">Successful Logout!</h3>
