@@ -17,7 +17,7 @@
 
         response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
         response.addHeader("Pragma", "no-cache");
-        response.addDateHeader ("Expires", 0);
+        response.addDateHeader("Expires", 0);
     %>
 
     <style type="text/css">
@@ -42,7 +42,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -68,9 +69,18 @@
     </div>
 </nav>
 
-<div class="container" style="width: 100px;height: 100px;margin: auto;margin-top: 100px;">
-    Registration succesfull! Welcome!<br>
-    Click <a href="LoginPageServlet">here</a> to log in!
+<div class="container" style="text-align:center;width: 350px;height: 100px;margin: auto;margin-top: 100px;">
+
+
+    <h3 style="color:#2a75c8"><b>
+        Registration successful!
+        <br>
+        <h2>Welcome!</h2>
+    </b></h3>
+    <br>
+    <h5>Click <b><u><a style="color:#2a75c8" href="LoginPageServlet"> here</a></u></b> to log in!</h5>
+
+
 </div><!-- /.container -->
 
 <script type="text/javascript">
