@@ -61,10 +61,11 @@ public class UserDAO {
             preparedStatement.setString(2, email);
             ResultSet resultSet;
             resultSet = preparedStatement.executeQuery();
-            resultSet.close();
             if (resultSet.next()) {
+                resultSet.close();
                 return true;
             } else {
+                resultSet.close();
                 return false;
             }
         }catch(SQLException e){

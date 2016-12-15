@@ -99,23 +99,7 @@
 
 <div class="container" style="width: 600px;height: 700px;margin: auto;margin-top: 100px;">
 
-    <div style="width: 500px;height: 300px;margin: auto;margin-top: 100px;">
-        <form class="form-signin">
-            <h2 class="form-signin-heading">Type what you are looking for ... </h2>
-            <label for="inputEmail" class="sr-only">What</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="What u lookin for bro ? ..." required autofocus>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Search!</button>
-
-            <c:if test="${sessionScope.email == null}">
-                <h2>Login to add new promotion! <a href="LoginPageServlet">>LOGIN<</a></h2>
-            </c:if>
-            <c:if test="${sessionScope.email != null }">
-                <h2>Add new promotion! <a href="AddPromotionPageServlet">>ADD<</a> </h2>
-            </c:if>
-
-        </form>
-    </div>
+    DODAJ PROMOCJE !
 
 
 </div><!-- /.container -->

@@ -77,6 +77,14 @@
         <servlet-name>WelcomePageServlet</servlet-name>
         <url-pattern>/WelcomePageServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddPromotionPageServlet</servlet-name>
+        <url-pattern>/AddPromotionPageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddPromotionPageServlet</servlet-name>
+        <servlet-class>com.beerfinder.Main.AddPromotionPageServlet</servlet-class>
+    </servlet>
     <session-config>
         <session-timeout>
             30
