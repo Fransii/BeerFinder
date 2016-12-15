@@ -14,7 +14,7 @@ public class UserDAO {
         if(!isEmailUsed(email)) {
             try {
                 Connection con = dbUtil.getConnection();
-                String sql = "INSERT INTO User VALUES (NULL,?,?,?,?)";
+                String sql = "INSERT INTO User VALUES (NULL,?,?,?,?,NULL)";
                 PreparedStatement preparedStatement = con.prepareStatement(sql);
                 preparedStatement.setString(1,firstName);
                 preparedStatement.setString(2,lastName);
