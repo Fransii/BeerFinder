@@ -21,7 +21,6 @@ public class UserDAO {
                 preparedStatement.setString(3,email);
                 preparedStatement.setString(4,password);
                 preparedStatement.executeUpdate();
-                preparedStatement.close();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -34,12 +33,11 @@ public class UserDAO {
     public boolean isEmailUsed(String newEmail){
         try {
             Connection con = dbUtil.getConnection();
-            String sql = "Select * from User where email = ?";
+            String sql = "SELECT * FROM User WHERE email = ?";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1,newEmail);
             ResultSet resultSet;
             resultSet = preparedStatement.executeQuery();
-            resultSet.close();
             if(resultSet.next()){
                 return true;
             }else
