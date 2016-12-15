@@ -85,6 +85,22 @@
         <servlet-name>AddPromotionPageServlet</servlet-name>
         <servlet-class>com.beerfinder.Main.AddPromotionPageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddPromotionServlet</servlet-name>
+        <servlet-class>com.beerfinder.Promotion.AddPromotionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPromotionServlet</servlet-name>
+        <url-pattern>/AddPromotionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddPromotionResultServlet</servlet-name>
+        <servlet-class>com.beerfinder.Main.AddPromotionResultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPromotionResultServlet</servlet-name>
+        <url-pattern>/AddPromotionResultServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

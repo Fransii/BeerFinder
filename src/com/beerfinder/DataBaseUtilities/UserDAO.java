@@ -73,4 +73,41 @@ public class UserDAO {
             return false;
         }
     }
+    public int getUserId(String email){
+        int id = 0;
+        try {
+            Connection con = dbUtil.getConnection();
+            String sql = "SELECT idUser FROM User WHERE email= ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, email);
+            preparedStatement.executeQuery();
+
+            ResultSet rs = preparedStatement.getResultSet();
+            if(rs.next()) {
+                id = rs.getInt(1);
+            }
+            preparedStatement.close();
+            return id;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return id;
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

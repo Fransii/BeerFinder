@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
         {
             HttpSession session = request.getSession();
             session.setAttribute("email",email);
+            session.setAttribute("userId",userDAO.getUserId(email));
             response.sendRedirect("/MainPageServlet");
             return;
         }else if(userDAO.isEmailUsed(email)){
