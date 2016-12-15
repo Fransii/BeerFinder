@@ -18,6 +18,21 @@ CREATE SCHEMA IF NOT EXISTS `BeerFinderDB` DEFAULT CHARACTER SET latin1 ;
 USE `BeerFinderDB` ;
 
 -- -----------------------------------------------------
+-- Table `BeerFinderDB`.`Adress`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Adress` (
+  `idAdress` INT(11) NOT NULL AUTO_INCREMENT,
+  `city` VARCHAR(45) NULL DEFAULT NULL,
+  `postCode` VARCHAR(45) NULL DEFAULT NULL,
+  `street` VARCHAR(45) NULL DEFAULT NULL,
+  `buildNumer` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`idAdress`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `BeerFinderDB`.`Beer`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Beer` (
@@ -28,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Beer` (
   `price` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idBeer`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -38,44 +54,17 @@ CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Store` (
   `idStore` INT(11) NOT NULL AUTO_INCREMENT,
   `coordx` VARCHAR(45) NULL DEFAULT NULL,
   `coordy` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`idStore`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `BeerFinderDB`.`Promotion`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Promotion` (
-  `idPromotion` INT(11) NOT NULL AUTO_INCREMENT,
-  `startDate` VARCHAR(45) NULL DEFAULT NULL,
-  `endDate` VARCHAR(45) NULL DEFAULT NULL,
-  `idStore` INT(11) NULL DEFAULT NULL,
-  `idBeer` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`idPromotion`),
-  INDEX `idBeer_idx` (`idBeer` ASC),
-  INDEX `idStore_idx` (`idStore` ASC),
-  CONSTRAINT `idBeer`
-    FOREIGN KEY (`idBeer`)
-    REFERENCES `BeerFinderDB`.`Beer` (`idBeer`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `idStore`
-    FOREIGN KEY (`idStore`)
-    REFERENCES `BeerFinderDB`.`Store` (`idStore`)
+  `idAdress` INT(11) NULL DEFAULT NULL,
+  `name` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`idStore`),
+  INDEX `idAdress_idx` (`idAdress` ASC),
+  CONSTRAINT `idAdress`
+    FOREIGN KEY (`idAdress`)
+    REFERENCES `BeerFinderDB`.`Adress` (`idAdress`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `BeerFinderDB`.`Statistic`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Statistic` (
-  `idStatistic` INT(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`idStatistic`))
-ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -114,7 +103,51 @@ CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`User` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 21
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `BeerFinderDB`.`Promotion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Promotion` (
+  `idPromotion` INT(11) NOT NULL AUTO_INCREMENT,
+  `startDate` VARCHAR(45) NULL DEFAULT NULL,
+  `endDate` VARCHAR(45) NULL DEFAULT NULL,
+  `idStore` INT(11) NULL DEFAULT NULL,
+  `idBeer` INT(11) NULL DEFAULT NULL,
+  `idUser` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idPromotion`),
+  INDEX `idBeer_idx` (`idBeer` ASC),
+  INDEX `idStore_idx` (`idStore` ASC),
+  INDEX `idUser_idx` (`idUser` ASC),
+  CONSTRAINT `idBeer`
+    FOREIGN KEY (`idBeer`)
+    REFERENCES `BeerFinderDB`.`Beer` (`idBeer`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idStore`
+    FOREIGN KEY (`idStore`)
+    REFERENCES `BeerFinderDB`.`Store` (`idStore`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idUserr`
+    FOREIGN KEY (`idUser`)
+    REFERENCES `BeerFinderDB`.`User` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `BeerFinderDB`.`Statistic`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `BeerFinderDB`.`Statistic` (
+  `idStatistic` INT(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idStatistic`))
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
