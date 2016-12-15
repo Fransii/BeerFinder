@@ -17,10 +17,11 @@
 
         response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
         response.addHeader("Pragma", "no-cache");
-        response.addDateHeader ("Expires", 0);
+        response.addDateHeader("Expires", 0);
     %>
 
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic" type="text/javascript"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic"
+            type="text/javascript"></script>
     <style type="text/css">
         <%@include file="../resources/bootstrap/css/bootstrap.min.css" %>
         <%@include file="../resources/bootstrap/css/bootstrap-theme.min.css" %>
@@ -68,7 +69,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -94,12 +96,40 @@
     </div>
 </nav>
 
-<div class="container" style="width: 100px;height: 100px;margin: auto;margin-top: 100px;">
+<div class="container">
 
-
-
-    Contact
-
+    <div class="container">
+        <div class="jumbotron jumbotron-sm" style="background-color:#2a75c8;margin-top:2%;color:white;">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12" style="text-align: center">
+                    <h2 class="h2" style="margin-top:-2%"><b>Contact:</b></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="well">
+                    <h3 style="line-height:20%;"><i class="fa fa-home fa-1x" style="line-height:6%;color:#339966"></i> Address:</h3>
+                    <p style="margin-top:6%;line-height:35%">Sukiennice</p>
+                    <p style="margin-top:6%;line-height:35%">Cracow</p>
+                    <br />
+                    <br />
+                    <h3 style="line-height:20%;"><i class="fa fa-envelope fa-1x" style="line-height:6%;color:#339966"></i> E-mail Address:</h3>
+                    <p style="margin-top:6%;line-height:35%">info@fbeer.com</p>
+                    <br />
+                    <br />
+                    <h3 style="line-height:20%;"><i class="fa fa-user fa-1x" style="line-height:6%;color:#339966"></i> Phone Numbers:</h3>
+                    <p style="margin-top:6%;line-height:35%">Helpline 1: 34 567-568-234</p>
+                    <p style="margin-top:6%;line-height:35%">Helpline 2: 34 567-865-432</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5122.607788801175!2d19.935471206614235!3d50.06187014040658!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd01f6c2526b37173!2sSukiennice!5e0!3m2!1spl!2spl!4v1481823399223" width="550" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
 </div><!-- /.container -->
 
