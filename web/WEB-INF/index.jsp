@@ -13,11 +13,19 @@
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
 
+    <%
+
+        response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+        response.addHeader("Pragma", "no-cache");
+        response.addDateHeader ("Expires", 0);
+    %>
 
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic" type="text/javascript"></script>
     <style type="text/css">
         <%@include file="../resources/bootstrap/css/bootstrap.min.css" %>
         <%@include file="../resources/bootstrap/css/bootstrap-theme.min.css" %>
+
+
 
     </style>
     <script>
