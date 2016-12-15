@@ -94,11 +94,42 @@
     </div>
 </nav>
 
-<div class="container" style="width: 100px;height: 100px;margin: auto;margin-top: 100px;">
+<div class="container">
 
 
 
-    AboutPage
+    <div class="container">
+        <div class="jumbotron" style="background-color:#2a75c8;margin-top:2%;color:white;">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12" style="text-align: center">
+                    <h2 class="h2" style="margin-top:-2%"><b>About Beer Finder</b></h2>
+                    <h4>Become a master of finding beer promotion</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="text-align: center">
+            <div class="col-sm-12">
+                <div class="well">
+                    <h3 style="line-height:20%;"><i class="fa fa-home fa-1x" style="line-height:6%;color:#339966"></i>What you will find here:</h3>
+                    <p style="margin-top:3%;line-height:25%">
+                        The best promotions of alcohol in your area!
+                    </p><br>
+                    <h3 style="line-height:20%;"><i class="fa fa-home fa-1x" style="line-height:6%;color:#339966"></i>You can also:</h3>
+                    <p style="margin-top:3%;line-height:25%">
+                        Adding places where is an opportunity to buy cheap alcohol!
+                    </p>
+                    <p style="margin-top:3%;line-height:25%">
+                        Rate and comment promotions found by others people!
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </div>
 
 
 
