@@ -17,7 +17,7 @@
 
         response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
         response.addHeader("Pragma", "no-cache");
-        response.addDateHeader ("Expires", 0);
+        response.addDateHeader("Expires", 0);
     %>
 
     <style type="text/css">
@@ -43,7 +43,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -69,26 +70,37 @@
     </div>
 </nav>
 
-<div class="container" >
+<div class="container">
 
 
-    <div style="width: 300px;height: 300px;margin: auto;margin-top: 100px;">
+        <div class="container">
+            <div class="jumbotron" style="background-color:#2a75c8;margin-top:2%;color:white;">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12" style="text-align: center">
+                        <h2 class="h2" style="margin-top:-2%"><b>Create new account</b></h2>
+                        <h4>to join to the community of Beer Finder</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div style="width: 300px;height: 300px;margin: auto;margin-top: 20px;">
         <form class="form-signin" action="RegistrationServlet" method="post">
-            <h2 class="form-signin-heading">Please sign in</h2>
             <label for="firstName" class="sr-only">Imie</label>
-            <input type="text" id="firstName" name="firstName" value="${param.firstName}" class="form-control" placeholder="Imie" required>
+            <input type="text" id="firstName" name="firstName" value="${param.firstName}" class="form-control"
+                   placeholder="Imie" required><br>
             <label for="lastName" class="sr-only">Nazwisko</label>
-            <input type="text" id="lastName" name="lastName" value="${param.lastName}" class="form-control" placeholder="Nazwisko" required>
+            <input type="text" id="lastName" name="lastName" value="${param.lastName}" class="form-control"
+                   placeholder="Nazwisko" required><br>
             <label for="email" class="sr-only">Email address</label>
-            <input type="email" id="email" name="email" value="${param.email}" class="form-control" placeholder="Email address" required autofocus>
+            <input type="email" id="email" name="email" value="${param.email}" class="form-control"
+                   placeholder="Email address" required autofocus><br>
             <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                   required><br><br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         </form>
         <span class="error">${errors.email}</span>
     </div>
-
-
 
 
 </div><!-- /.container -->
