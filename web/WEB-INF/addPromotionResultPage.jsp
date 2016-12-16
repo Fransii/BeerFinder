@@ -17,7 +17,7 @@
 
         response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
         response.addHeader("Pragma", "no-cache");
-        response.addDateHeader ("Expires", 0);
+        response.addDateHeader("Expires", 0);
     %>
 
     <style type="text/css">
@@ -42,7 +42,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -68,10 +69,13 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container" style="text-align:center;">
 
-    DODANO PRODUKT!
-
+    <div class="container" style="width: 300px;height: 700px;margin: auto;margin-top: 100px;">
+        <h1 style="color:#2a75c8">Succes!</h1>
+        <hr>
+        <h4>Adding a new promotion was completed successfully</h4>
+    </div>
 
 </div><!-- /.container -->
 

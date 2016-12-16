@@ -68,9 +68,16 @@
     </div>
 </nav>
 
-<div class="container" style="width: 100px;height: 100px;margin: auto;margin-top: 100px;">
-    Registration succesfull! Welcome!<br>
-    Click <a href="LoginPageServlet">here</a> to log in!
+<div class="container" style="text-align:center;width: 300px;height: 100px;margin: auto;margin-top: 100px;">
+
+
+    <h3 style="color:#2a75c8;margin-bottom:0px;">Registration successful!</h3>
+    <br>
+    <h2 style="color:#2a75c8;margin-top:0px;">Welcome!</h2>
+    <hr>
+    <h4 style="margin-top:0px;">Click <a href="LoginPageServlet">here</a> to log in!</h4>
+
+
 </div><!-- /.container -->
 
 <script type="text/javascript">
