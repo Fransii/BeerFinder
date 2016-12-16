@@ -17,14 +17,14 @@
 
         response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
         response.addHeader("Pragma", "no-cache");
-        response.addDateHeader ("Expires", 0);
+        response.addDateHeader("Expires", 0);
     %>
 
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic" type="text/javascript"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic"
+            type="text/javascript"></script>
     <style type="text/css">
         <%@include file="../resources/bootstrap/css/bootstrap.min.css" %>
         <%@include file="../resources/bootstrap/css/bootstrap-theme.min.css" %>
-
 
 
     </style>
@@ -70,7 +70,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -97,53 +98,76 @@
     </div>
 </nav>
 
-<div class="container" style="width: 600px;height: 700px;margin: auto;margin-top: 100px;">
+<div class="container" style="width: 600px;height: 700px;margin: auto;margin-top: 10px;">
 
-    <div style="width: 300px;height: 200px;margin: auto;margin-top: 100px;">
+    <div style="width: 300px;height: 200px;margin: auto;margin-top: 10px;">
         <form class="form-signin" method="post" action="AddPromotionServlet">
-            <h2 class="form-signin-heading">Add promotion ... </h2>
+            <div class="panel panel-primary">
+                <div style="text-align:center;" class="panel-heading">
+                    <h2 style="margin-top:10px;">Add Promotion</h2>
+                </div>
 
-            <label for="startDate" class="sr-only">Promotion start Date</label>
-            <input type="text" id="startDate" class="form-control" value="${param.startDate}" name="startDate" placeholder="Promotion start date" required autofocus>
-
-            <label for="endDate" class="sr-only">Promotion end Date</label>
-            <input type="text" id="endDate" class="form-control" value="${param.endDate}" name="endDate" placeholder="Promotion end date" required>
-
-            <label for="coordX" class="sr-only">CoordX</label>
-            <input type="text" id="coordX" class="form-control" value="${param.coordX}" name="coordX" placeholder="CoordX" required>
-
-            <label for="coordY" class="sr-only">CoordY</label>
-            <input type="text" id="coordY" class="form-control" value="${param.coordY}" name="coordY" placeholder="CoordY" required>
-
-            <label for="storeName" class="sr-only">StoreName</label>
-            <input type="text" id="storeName" class="form-control" value="${param.storeName}" name="storeName" placeholder="Store Name" required>
-
-            <label for="beerName" class="sr-only">Beer Name</label>
-            <input type="text" id="beerName" class="form-control" value="${param.beerName}" name="beerName" placeholder="Beer Name" required>
-
-            <label for="beerCapacity" class="sr-only">Beer Capacity</label>
-            <input type="text" id="beerCapacity" class="form-control" value="${param.beerCapacity}" name="beerCapacity" placeholder="Beer Capacity" required>
-
-            <label for="beerPackage" class="sr-only">Beer Package</label>
-            <input type="text" id="beerPackage" class="form-control" value="${param.beerPackage}" name="beerPackage" placeholder="Beer Package" required>
-
-            <label for="beerPrice" class="sr-only">Beer Price</label>
-            <input type="text" id="beerPrice" class="form-control" value="${param.beerPrice}" name="beerPrice" placeholder="Beer Price" required>
-
-            <label for="city" class="sr-only">City</label>
-            <input type="text" id="city" class="form-control" value="${param.city}" name="city" placeholder="City" required>
-
-            <label for="postCode" class="sr-only">Post Code</label>
-            <input type="text" id="postCode" class="form-control" value="${param.street}" name="postCode" placeholder="Post Code" required>
-
-            <label for="street" class="sr-only">Street</label>
-            <input type="text" id="street" class="form-control" value="${param.street}" name="street" placeholder="Street" required>
-
-            <label for="buildNumber" class="sr-only">Build Number</label>
-            <input type="text" id="buildNumber" class="form-control" value="${param.buildNumber}" name="buildNumber" placeholder="Build Number" required>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Add!</button>
-            <span class="error">${errors.blad}</span>
+                <div class="panel-body">
+                    <label for="startDate" class="sr-only">Promotion start Date</label>
+                    <input type="text" id="startDate" class="form-control" value="${param.startDate}" name="startDate"
+                           placeholder="Promotion start date" required autofocus>
+                    <br>
+                    <label for="endDate" class="sr-only">Promotion end Date</label>
+                    <input type="text" id="endDate" class="form-control" value="${param.endDate}" name="endDate"
+                           placeholder="Promotion end date" required>
+                    <br>
+                    <label for="coordX" class="sr-only">CoordX</label>
+                    <input type="text" id="coordX" class="form-control" value="${param.coordX}" name="coordX"
+                           placeholder="CoordX" required>
+                    <br>
+                    <label for="coordY" class="sr-only">CoordY</label>
+                    <input type="text" id="coordY" class="form-control" value="${param.coordY}" name="coordY"
+                           placeholder="CoordY" required>
+                    <br>
+                    <label for="storeName" class="sr-only">StoreName</label>
+                    <input type="text" id="storeName" class="form-control" value="${param.storeName}" name="storeName"
+                           placeholder="Store Name" required>
+                    <br>
+                    <label for="beerName" class="sr-only">Beer Name</label>
+                    <input type="text" id="beerName" class="form-control" value="${param.beerName}" name="beerName"
+                           placeholder="Beer Name" required>
+                    <br>
+                    <label for="beerCapacity" class="sr-only">Beer Capacity</label>
+                    <input type="text" id="beerCapacity" class="form-control" value="${param.beerCapacity}"
+                           name="beerCapacity"
+                           placeholder="Beer Capacity" required>
+                    <br>
+                    <label for="beerPackage" class="sr-only">Beer Package</label>
+                    <input type="text" id="beerPackage" class="form-control" value="${param.beerPackage}"
+                           name="beerPackage"
+                           placeholder="Beer Package" required>
+                    <br>
+                    <label for="beerPrice" class="sr-only">Beer Price</label>
+                    <input type="text" id="beerPrice" class="form-control" value="${param.beerPrice}" name="beerPrice"
+                           placeholder="Beer Price" required>
+                    <br>
+                    <label for="city" class="sr-only">City</label>
+                    <input type="text" id="city" class="form-control" value="${param.city}" name="city"
+                           placeholder="City"
+                           required>
+                    <br>
+                    <label for="postCode" class="sr-only">Post Code</label>
+                    <input type="text" id="postCode" class="form-control" value="${param.street}" name="postCode"
+                           placeholder="Post Code" required>
+                    <br>
+                    <label for="street" class="sr-only">Street</label>
+                    <input type="text" id="street" class="form-control" value="${param.street}" name="street"
+                           placeholder="Street" required>
+                    <br>
+                    <label for="buildNumber" class="sr-only">Build Number</label>
+                    <input type="text" id="buildNumber" class="form-control" value="${param.buildNumber}"
+                           name="buildNumber"
+                           placeholder="Build Number" required>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Add!</button>
+                    <span class="error">${errors.blad}</span>
+                </div>
+            </div>
         </form>
     </div>
 

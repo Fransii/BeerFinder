@@ -99,14 +99,16 @@
 <div class="container">
 
     <div class="container">
-        <div class="jumbotron jumbotron-sm" style="background-color:#2a75c8;margin-top:2%;color:white;">
+        <div class="jumbotron" style="background-color:#2a75c8;margin-top:2%;color:white;">
             <div class="row">
                 <div class="col-sm-12 col-lg-12" style="text-align: center">
-                    <h2 class="h2" style="margin-top:-2%"><b>Contact:</b></h2>
+                    <h2 class="h2" style="margin-top:-2%"><b>Contact</b></h2>
+                    <h4>in case of problems, call or write to us</h4>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-sm-6">

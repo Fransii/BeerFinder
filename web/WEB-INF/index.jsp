@@ -17,14 +17,14 @@
 
         response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
         response.addHeader("Pragma", "no-cache");
-        response.addDateHeader ("Expires", 0);
+        response.addDateHeader("Expires", 0);
     %>
 
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic" type="text/javascript"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic"
+            type="text/javascript"></script>
     <style type="text/css">
         <%@include file="../resources/bootstrap/css/bootstrap.min.css" %>
         <%@include file="../resources/bootstrap/css/bootstrap-theme.min.css" %>
-
 
 
     </style>
@@ -70,7 +70,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -99,20 +100,46 @@
 
 <div class="container" style="width: 600px;height: 700px;margin: auto;margin-top: 100px;">
 
-    <div style="width: 500px;height: 300px;margin: auto;margin-top: 100px;">
+    <div style="text-align:center;width: 500px;height: 300px;margin: auto;margin-top: 50px;">
         <form class="form-signin">
-            <h2 class="form-signin-heading">Type what you are looking for ... </h2>
-            <label for="inputEmail" class="sr-only">What</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="What u lookin for bro ? ..." required autofocus>
+            <div class="panel panel-primary">
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Search!</button>
+                <div class="panel-heading">
+                    <h2 style="margin-top:10px;">Type what you are looking for...</h2>
+                </div>
+
+                <div class="panel-body">
+                    <div style="width: 250px;height: 100px;margin: auto;margin-top: 15px;">
+                        <label for="inputEmail" class="sr-only">What</label>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="What u looking for bro?"
+                               required
+                               autofocus>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Search!</button>
+                    </div>
+                </div>
+            </div>
+
 
             <c:if test="${sessionScope.email == null}">
-                <h2>Login to add new promotion! <a href="LoginPageServlet">>LOGIN<</a></h2>
+                <div class="panel panel-danger"
+                     style="width: 300px;height: 215px;margin: auto;margin-top: 50px;">
+                    <div class="panel-heading">
+                        <h4>You must be logged to add new promotion!</h4>
+                    </div>
+                    <div class="panel-body">
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" disabled>ADD Promotion</button>
+                        <h4><a href="LoginPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Login</a>
+                        </h4>
+                    </div>
+                </div>
             </c:if>
+
             <c:if test="${sessionScope.email != null }">
-                <h2>Add new promotion! <a href="AddPromotionPageServlet">>ADD<</a> </h2>
+                <h4><a href="AddPromotionPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Add new
+                    promotion!</a></h4>
             </c:if>
+
 
         </form>
     </div>

@@ -69,9 +69,11 @@
     </div>
 </nav>
 
-<div class="container" style="width: 100px;height: 100px;margin: auto;margin-top: 100px;">
+<div class="container" style="text-align:center;width: 300px;height: 100px;margin: auto;margin-top: 100px;">
 
-    Suffesful Logout! Redirect to main page in 5 seconds!
+    <h3 style="color:#2a75c8">Successful Logout!</h3>
+    <hr>
+    Redirect to main page in 5 seconds!
 
 </div><!-- /.container -->
 
