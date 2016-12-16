@@ -98,36 +98,51 @@
     </div>
 </nav>
 
-<div class="container" style="width: 600px;height: 700px;margin: auto;margin-top: 100px;">
+<div class="container" style="width: 1000px;height: 700px;margin: auto;margin-top: 100px;">
 
-    <div style="text-align:center;width: 500px;height: 300px;margin: auto;margin-top: 50px;">
-        <form class="form-signin">
-            <div>
-                <h4><a href="PromotionsPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Check out promotions!</a></h4>
-            </div>
+    <div style="text-align:center;width: 900px;height: 400px;margin: auto;margin-top: 50px;">
 
-            <c:if test="${sessionScope.email == null}">
-                <div class="panel panel-danger"
-                     style="width: 300px;height: 215px;margin: auto;margin-top: 50px;">
-                    <div class="panel-heading">
-                        <h4>You must be logged to add new promotion!</h4>
-                    </div>
-                    <div class="panel-body">
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" disabled>ADD Promotion</button>
-                        <h4><a href="LoginPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Login</a>
-                        </h4>
-                    </div>
-                </div>
-            </c:if>
+        <form class="form-signin" action="PromotionsServlet" method="post">
 
-            <c:if test="${sessionScope.email != null }">
-                <h4><a href="AddPromotionPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Add new
-                    promotion!</a></h4>
-            </c:if>
-
-
+            <button class="btn btn-lg btn-primary btn-block" type="submit">GET PROMOTIONS</button>
         </form>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Promotion Id</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>City</th>
+                    <th>Store Name</th>
+                    <th>Store Adres</th>
+                    <th>Store Build Numer</th>
+                    <th>Beer Name</th>
+                    <th>Beer Price</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <c:forEach items="${promotions}" var="promotion">
+                    <tr>
+                        <td>${promotion.promotionId}</td>
+                        <td>${promotion.startDate}</td>
+                        <td>${promotion.endDate}</td>
+                        <td>${promotion.store.adress.city}</td>
+                        <td>${promotion.store.adress.street}</td>
+                        <td>${promotion.store.adress.buildNumber}</td>
+                        <td>${promotion.store.name}</td>
+                        <td>${promotion.beer.name}</td>
+                        <td>${promotion.beer.price}</td>
+                    </tr>
+                </c:forEach>
+
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
 
 
 </div><!-- /.container -->

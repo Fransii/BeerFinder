@@ -1,5 +1,7 @@
 package com.beerfinder.DataBaseUtilities;
 
+import com.beerfinder.Beans.Beer;
+
 import java.sql.*;
 
 /**
@@ -32,5 +34,28 @@ public class BeerDAO {
             e.printStackTrace();
             return idBeer;
         }
+    }
+
+    public Beer getBeerById(int beerId) {
+        Beer beer = new Beer();
+        try {
+            Connection con = dbUtil.getConnection();
+            String sql = "SELECT * FROM Beer WHERE idBeer = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, beerId);
+            preparedStatement.executeQuery();
+
+            ResultSet rs = preparedStatement.getResultSet();
+            if (rs.next()) {
+                beer.setCapacity(rs.getString("capacity"));
+                beer.setName(rs.getString("name"));
+                beer.setBeerPackage(rs.getString("package"));
+                beer.setPrice(rs.getString("price"));
+            }
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return beer;
     }
 }

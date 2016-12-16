@@ -1,5 +1,8 @@
 package com.beerfinder.DataBaseUtilities;
 
+import com.beerfinder.Beans.Adress;
+import com.beerfinder.Beans.Beer;
+
 import java.sql.*;
 
 /**
@@ -32,5 +35,27 @@ public class AdressDAO {
             e.printStackTrace();
             return idAdress;
         }
+    }
+    public Adress getAdressById(int adressId){
+        Adress adress = new Adress();
+        try {
+            Connection con = dbUtil.getConnection();
+            String sql = "SELECT * FROM Adress WHERE idAdress = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, adressId);
+            preparedStatement.executeQuery();
+
+            ResultSet rs = preparedStatement.getResultSet();
+            if (rs.next()) {
+                adress.setCity(rs.getString("city"));
+                adress.setPostCode(rs.getString("postCode"));
+                adress.setStreet(rs.getString("street"));
+                adress.setBuildNumber(rs.getString("buildNumer"));
+            }
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return adress;
     }
 }
