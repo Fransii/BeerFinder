@@ -32,8 +32,8 @@
 
         function myMap() {
             var mapCanvas = document.getElementById("map");
-            var myCenter=new google.maps.LatLng(51.508742,-0.120850);
-            var mapOptions = {center: myCenter, zoom: 5};
+            var myCenter=new google.maps.LatLng(50.06222197114333,19.936991035938263);
+            var mapOptions = {center: myCenter, zoom: 12};
             var map = new google.maps.Map(mapCanvas, mapOptions);
             google.maps.event.addListener(map, 'click', function(event) {
                 placeMarker(map, event.latLng);
@@ -186,14 +186,13 @@
                     <input type="text" id="beerPrice" class="form-control" value="${param.beerPrice}" name="beerPrice"
                            placeholder="Beer Price" required>
                     <br>
+                    Mark the place location on map! :)
+                    <br>
+                    <br>
                     <label for="city" class="sr-only">City</label>
                     <input type="text" id="city" class="form-control" value="${param.city}" name="city"
                            placeholder="City"
                            required>
-                    <br>
-                    <label for="postCode" class="sr-only">Post Code</label>
-                    <input type="text" id="postCode" class="form-control" value="${param.street}" name="postCode"
-                           placeholder="Post Code" required>
                     <br>
                     <label for="street" class="sr-only">Street</label>
                     <input type="text" id="street" class="form-control" value="${param.street}" name="street"
@@ -212,7 +211,9 @@
                     <input type="hidden" id="coordY" class="form-control" value="${param.coordY}" name="coordY"
                            placeholder="CoordY" required>
                     <br>
-                    Mark the place location on map! :)
+                    <label for="postCode" class="sr-only">Post Code</label>
+                    <input type="hidden" id="postCode" class="form-control" value="${param.street}" name="postCode"
+                           placeholder="Post Code" required>
                     <br>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Add!</button>
                     <span class="error">${errors.blad}</span>
