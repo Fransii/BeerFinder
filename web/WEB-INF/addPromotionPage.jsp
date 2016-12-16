@@ -29,28 +29,38 @@
 
     </style>
     <script>
-        var myCenter = new google.maps.LatLng(50.062279, 19.937902);
-        var marker;
 
-        function initialize() {
-            var mapProp = {
-                center: myCenter,
-                zoom: 13,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
-            var marker = new google.maps.Marker({
-                position: myCenter,
-                animation: google.maps.Animation.BOUNCE
+        function myMap() {
+            var mapCanvas = document.getElementById("map");
+            var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+            var mapOptions = {center: myCenter, zoom: 5};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            google.maps.event.addListener(map, 'click', function(event) {
+                placeMarker(map, event.latLng);
             });
-
-            marker.setMap(map);
         }
+        var marker1;
+        function placeMarker(map, location) {
+            if ( marker1 ) {
+                marker1.setPosition(location);
+            } else {
+                marker1 = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
+            var lat = marker1.getPosition().lat();
+            var lng = marker1.getPosition().lng();
 
+            document.getElementById("coordX").value = lat;
+            document.getElementById("coordY").value = lng;
+
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+            });
+            infowindow.open(map,marker);
+        }
     </script>
 
     <style>
@@ -98,9 +108,9 @@
     </div>
 </nav>
 
-<div class="container" style="width: 600px;height: 700px;margin: auto;margin-top: 10px;">
+<div class="container" style="width: 700px;height: 700px;margin: auto;margin-top: 10px;">
 
-    <div style="width: 300px;height: 200px;margin: auto;margin-top: 10px;">
+    <div style="width: 600px;height: 200px;margin: auto;margin-top: 10px;">
         <form class="form-signin" method="post" action="AddPromotionServlet">
             <div class="panel panel-primary">
                 <div style="text-align:center;" class="panel-heading">
@@ -116,6 +126,7 @@
                     <input type="text" id="endDate" class="form-control" value="${param.endDate}" name="endDate"
                            placeholder="Promotion end date" required>
                     <br>
+                    Mark the place location on map! :)
                     <label for="coordX" class="sr-only">CoordX</label>
                     <input type="text" id="coordX" class="form-control" value="${param.coordX}" name="coordX"
                            placeholder="CoordX" required>
@@ -166,6 +177,9 @@
                     <br>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Add!</button>
                     <span class="error">${errors.blad}</span>
+
+                    <div id="map" style="width:100%;height:500px;"></div>
+
                 </div>
             </div>
         </form>
@@ -173,7 +187,7 @@
 
 
 </div><!-- /.container -->
-
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic&callback=myMap" type="text/javascript"></script>
 <script type="text/javascript">
 
     <%@include file="../resources/bootstrap/js/bootstrap.min.js" %>
