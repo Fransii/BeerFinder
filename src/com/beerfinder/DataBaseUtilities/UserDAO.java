@@ -39,11 +39,12 @@ public class UserDAO {
             preparedStatement.setString(1,newEmail);
             ResultSet resultSet;
             resultSet = preparedStatement.executeQuery();
-            resultSet.close();
             if(resultSet.next()){
+                resultSet.close();
                 return true;
             }else
             {
+                resultSet.close();
                 return false;
             }
 
@@ -92,6 +93,26 @@ public class UserDAO {
             e.printStackTrace();
             return id;
         }
+    }
+    public User getUserById(int userId){
+        User user = new User();
+        try{
+            Connection con = dbUtil.getConnection();
+            String sql = "SELECT * FROM USER where idUser = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1,userId);
+            preparedStatement.executeQuery();
+
+            ResultSet rs = preparedStatement.getResultSet();
+            if(rs.next()){
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setEmail(rs.getString("email"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return user;
     }
 }
 

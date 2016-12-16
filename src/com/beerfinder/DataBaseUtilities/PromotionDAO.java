@@ -1,6 +1,9 @@
 package com.beerfinder.DataBaseUtilities;
 
+import com.beerfinder.Beans.Promotion;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by franciszekdanes on 15.12.2016.
@@ -47,5 +50,36 @@ public class PromotionDAO {
             e.printStackTrace();
             return false;
         }
+    }
+    public int getPromotionById(){
+        return 0;
+    }
+    public ArrayList<Promotion> getAllPromotions(){
+        ArrayList<Promotion> arrayList = new ArrayList<Promotion>();
+        StoreDAO storeDAO = new StoreDAO();
+        UserDAO userDAO = new UserDAO();
+        BeerDAO beerDAO = new BeerDAO();
+
+        try {
+            Connection connection = dbUtil.getConnection();
+            String sql = "Select * from Promotion;";
+            Statement statement = connection.createStatement();
+            statement.executeQuery(sql);
+            ResultSet resultSet = statement.getResultSet();
+
+            while(resultSet.next()){
+                arrayList.add(new Promotion(
+                        resultSet.getInt("idPromotion"),
+                        resultSet.getString("startDate"),
+                        resultSet.getString("endDate"),
+                        beerDAO.getBeerById(resultSet.getInt("idBeer")),
+                        storeDAO.getStoreById(resultSet.getInt("idStore")),
+                        userDAO.getUserById(resultSet.getInt("idUser"))
+                ));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return arrayList;
     }
 }
