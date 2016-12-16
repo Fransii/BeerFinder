@@ -51,8 +51,34 @@ public class PromotionDAO {
             return false;
         }
     }
-    public int getPromotionById(){
-        return 0;
+    public Promotion getPromotionById(int id){
+        Promotion promotion = new Promotion();
+        StoreDAO storeDAO = new StoreDAO();
+        UserDAO userDAO = new UserDAO();
+        BeerDAO beerDAO = new BeerDAO();
+
+        try {
+            Connection connection = dbUtil.getConnection();
+            String sql = "Select * FROM Promotion WHERE idPromotion = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            statement.executeQuery();
+            ResultSet resultSet = statement.getResultSet();
+
+            while(resultSet.next()){
+                promotion = new Promotion(
+                        resultSet.getInt("idPromotion"),
+                        resultSet.getString("startDate"),
+                        resultSet.getString("endDate"),
+                        beerDAO.getBeerById(resultSet.getInt("idBeer")),
+                        storeDAO.getStoreById(resultSet.getInt("idStore")),
+                        userDAO.getUserById(resultSet.getInt("idUser"))
+                );
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return promotion;
     }
     public ArrayList<Promotion> getAllPromotions(){
         ArrayList<Promotion> arrayList = new ArrayList<Promotion>();

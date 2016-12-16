@@ -117,6 +117,22 @@
         <servlet-name>PromotionsPageServlet</servlet-name>
         <url-pattern>/PromotionsPageServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PromotionServlet</servlet-name>
+        <servlet-class>com.beerfinder.Promotion.PromotionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PromotionServlet</servlet-name>
+        <url-pattern>/PromotionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PromotionPageServlet</servlet-name>
+        <servlet-class>com.beerfinder.Main.PromotionPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PromotionPageServlet</servlet-name>
+        <url-pattern>/PromotionPageServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -29,7 +29,7 @@
 
     </style>
     <script>
-        var myCenter = new google.maps.LatLng(50.062279, 19.937902);
+        var myCenter = new google.maps.LatLng(Number(${promotion.store.coordX}), Number(${promotion.store.coordY}));
         var marker;
 
         function initialize() {
@@ -102,10 +102,7 @@
 
     <div style="text-align:center;width: 900px;height: 400px;margin: auto;margin-top: 50px;">
 
-        <form class="form-signin" action="PromotionsServlet" method="post">
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">GET PROMOTIONS</button>
-        </form>
 
         <div class="table-responsive">
             <table class="table">
@@ -120,12 +117,9 @@
                     <th>Store Build Numer</th>
                     <th>Beer Name</th>
                     <th>Beer Price</th>
-                    <th>Details</th>
                 </tr>
                 </thead>
                 <tbody>
-                <form method="post" action="PromotionServlet">
-                <c:forEach items="${promotions}" var="promotion">
                     <tr>
                         <td>${promotion.promotionId}</td>
                         <td>${promotion.startDate}</td>
@@ -136,12 +130,11 @@
                         <td>${promotion.store.name}</td>
                         <td>${promotion.beer.name}</td>
                         <td>${promotion.beer.price}</td>
-                        <td><input type="submit" value="${promotion.promotionId}" name="promotionId" placeholder="Details"></td>
                     </tr>
-                </c:forEach>
-                </form>
                 </tbody>
             </table>
+
+            <div id="googleMap" style="width:500px;height:380px;margin: auto"></div>
         </div>
     </div>
 </div>
