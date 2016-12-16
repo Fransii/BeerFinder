@@ -55,7 +55,45 @@
 
             document.getElementById("coordX").value = lat;
             document.getElementById("coordY").value = lng;
+            //
+            var geocoder;
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(lat, lng);
 
+         /*   geocoder.geocode(
+                    {'latLng': latlng},
+                    function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                var add= results[0].formatted_address ;
+                                var  value=add.split(",");
+
+                                count=value.length;
+                                country=value[count-1];
+                                state=value[count-2];
+                                city=value[count-3];
+                                alert("city name is: " + add);
+                            }
+                            else  {
+                                alert("address not found");
+                            }
+                        }
+                        else {
+                            alert("Geocoder failed due to: " + status);
+                        }
+                    }
+            );*/
+            var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + '%2C' + lng + '&language=en';
+
+            $.getJSON(GEOCODING).done(function(location) {
+
+                document.getElementById("city").value = location.results[0].address_components[4].long_name;
+                document.getElementById("street").value = location.results[0].address_components[1].long_name;
+                document.getElementById("postCode").value = location.results[0].address_components[6].long_name;
+                document.getElementById("buildNumber").value = location.results[0].address_components[0].long_name;
+
+            })
+            //
             var infowindow = new google.maps.InfoWindow({
                 content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
             });
@@ -126,15 +164,6 @@
                     <input type="text" id="endDate" class="form-control" value="${param.endDate}" name="endDate"
                            placeholder="Promotion end date" required>
                     <br>
-                    Mark the place location on map! :)
-                    <label for="coordX" class="sr-only">CoordX</label>
-                    <input type="text" id="coordX" class="form-control" value="${param.coordX}" name="coordX"
-                           placeholder="CoordX" required>
-                    <br>
-                    <label for="coordY" class="sr-only">CoordY</label>
-                    <input type="text" id="coordY" class="form-control" value="${param.coordY}" name="coordY"
-                           placeholder="CoordY" required>
-                    <br>
                     <label for="storeName" class="sr-only">StoreName</label>
                     <input type="text" id="storeName" class="form-control" value="${param.storeName}" name="storeName"
                            placeholder="Store Name" required>
@@ -174,6 +203,16 @@
                     <input type="text" id="buildNumber" class="form-control" value="${param.buildNumber}"
                            name="buildNumber"
                            placeholder="Build Number" required>
+                    <br>
+                    <label for="coordX" class="sr-only">CoordX</label>
+                    <input type="hidden" id="coordX" class="form-control" value="${param.coordX}" name="coordX"
+                           placeholder="CoordX" required>
+                    <br>
+                    <label for="coordY" class="sr-only">CoordY</label>
+                    <input type="hidden" id="coordY" class="form-control" value="${param.coordY}" name="coordY"
+                           placeholder="CoordY" required>
+                    <br>
+                    Mark the place location on map! :)
                     <br>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Add!</button>
                     <span class="error">${errors.blad}</span>

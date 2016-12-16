@@ -115,9 +115,6 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>City</th>
-                    <th>Store Name</th>
-                    <th>Store Adres</th>
-                    <th>Store Build Numer</th>
                     <th>Beer Name</th>
                     <th>Beer Price</th>
                     <th>Details</th>
@@ -130,9 +127,6 @@
                         <td>${promotion.promotionId}</td>
                         <td>${promotion.startDate}</td>
                         <td>${promotion.endDate}</td>
-                        <td>${promotion.store.adress.city}</td>
-                        <td>${promotion.store.adress.street}</td>
-                        <td>${promotion.store.adress.buildNumber}</td>
                         <td>${promotion.store.name}</td>
                         <td>${promotion.beer.name}</td>
                         <td>${promotion.beer.price}</td>
