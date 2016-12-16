@@ -108,4 +108,33 @@ public class PromotionDAO {
         }
         return arrayList;
     }
+    public ArrayList<Promotion> getSpecificPromotion(String newCity){
+        ArrayList<Promotion> arrayList = new ArrayList<Promotion>();
+        StoreDAO storeDAO = new StoreDAO();
+        UserDAO userDAO = new UserDAO();
+        BeerDAO beerDAO = new BeerDAO();
+
+        try {
+            Connection connection = dbUtil.getConnection();
+            String sql = "Select * from Promotion, Store, Adress where Promotion.idStore=Store.idStore and Store.idAdress = Adress.idAdress and Adress.city = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,newCity);
+            statement.executeQuery();
+            ResultSet resultSet = statement.getResultSet();
+
+            while(resultSet.next()){
+                arrayList.add(new Promotion(
+                        resultSet.getInt("idPromotion"),
+                        resultSet.getString("startDate"),
+                        resultSet.getString("endDate"),
+                        beerDAO.getBeerById(resultSet.getInt("idBeer")),
+                        storeDAO.getStoreById(resultSet.getInt("idStore")),
+                        userDAO.getUserById(resultSet.getInt("idUser"))
+                ));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
 }

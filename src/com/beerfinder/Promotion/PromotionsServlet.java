@@ -21,11 +21,17 @@ public class PromotionsServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/promotionsPage.jsp");
 
+
         ArrayList<Promotion> promotions = new ArrayList<Promotion>();
 
         PromotionDAO promotionDAO = new PromotionDAO();
 
-        promotions = promotionDAO.getAllPromotions();
+        if(request.getParameter("ALL") != null){
+            promotions = promotionDAO.getAllPromotions();
+        }else
+        {
+            promotions = promotionDAO.getSpecificPromotion(request.getParameter("city"));
+        }
 
         request.setAttribute("promotions",promotions);
         dispatcher.forward(request,response);

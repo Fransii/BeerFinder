@@ -103,8 +103,13 @@
     <div style="text-align:center;width: 900px;height: 400px;margin: auto;margin-top: 50px;">
 
         <form class="form-signin" action="PromotionsServlet" method="post">
+            <input type="text" name="city" placeholder="City">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">GET SPECIFIC PROMOTIONS</button>
+        </form>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">GET PROMOTIONS</button>
+        <form class="form-signin" action="PromotionsServlet" method="post">
+            <input type="hidden" name="ALL" value="YES">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">GET ALL PROMOTIONS</button>
         </form>
 
         <div class="table-responsive">
