@@ -104,6 +104,7 @@
 
         <form class="form-signin" action="PromotionsServlet" method="post">
             <input type="text" name="city" placeholder="City">
+            <input type="text" name="beerName" placeholder="Beer Name">
             <button class="btn btn-lg btn-primary btn-block" type="submit">GET SPECIFIC PROMOTIONS</button>
         </form>
 
@@ -132,7 +133,7 @@
                         <td>${promotion.promotionId}</td>
                         <td>${promotion.startDate}</td>
                         <td>${promotion.endDate}</td>
-                        <td>${promotion.store.name}</td>
+                        <td>${promotion.store.adress.city}</td>
                         <td>${promotion.beer.name}</td>
                         <td>${promotion.beer.price}</td>
                         <td><input type="submit" value="${promotion.promotionId}" name="promotionId" placeholder="Details"></td>

@@ -30,7 +30,7 @@ public class PromotionsServlet extends HttpServlet {
             promotions = promotionDAO.getAllPromotions();
         }else
         {
-            promotions = promotionDAO.getSpecificPromotion(request.getParameter("city"));
+            promotions = promotionDAO.getSpecificPromotion(request.getParameter("city"),request.getParameter("beerName"));
         }
 
         request.setAttribute("promotions",promotions);

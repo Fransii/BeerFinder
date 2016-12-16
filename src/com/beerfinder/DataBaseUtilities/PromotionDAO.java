@@ -108,17 +108,39 @@ public class PromotionDAO {
         }
         return arrayList;
     }
-    public ArrayList<Promotion> getSpecificPromotion(String newCity){
+    public ArrayList<Promotion> getSpecificPromotion(String newCity,String newBeerName){
         ArrayList<Promotion> arrayList = new ArrayList<Promotion>();
         StoreDAO storeDAO = new StoreDAO();
         UserDAO userDAO = new UserDAO();
         BeerDAO beerDAO = new BeerDAO();
 
+        boolean citySelected=false;
+        boolean newBeerSelected=false;
+
+        if(!newCity.equals(""))citySelected = true;
+        if(!newBeerName.equals(""))newBeerSelected = true;
+
         try {
             Connection connection = dbUtil.getConnection();
-            String sql = "Select * from Promotion, Store, Adress where Promotion.idStore=Store.idStore and Store.idAdress = Adress.idAdress and Adress.city = ?;";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,newCity);
+            PreparedStatement statement;
+            if(citySelected && newBeerSelected){
+                String sql = "Select * from Promotion, Store, Adress, Beer where Promotion.idStore=Store.idStore and Store.idAdress = Adress.idAdress and Beer.idBeer = Promotion.idBeer and Adress.city = ? and Beer.name = ?;";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1,newCity);
+                statement.setString(2,newBeerName);
+            }else if (citySelected && !newBeerSelected) {
+                String sql = "Select * from Promotion, Store, Adress where Promotion.idStore=Store.idStore and Store.idAdress = Adress.idAdress and Adress.city = ?;";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1,newCity);
+            }else if(!citySelected && newBeerSelected){
+                String sql = "Select * from Promotion, Store, Adress, Beer where Promotion.idStore=Store.idStore and Store.idAdress = Adress.idAdress and Beer.idBeer = Promotion.idBeer and Beer.name = ?;";
+                statement = connection.prepareStatement(sql);
+                statement.setString(1,newBeerName);
+            }else {
+                String sql = "Select * from Promotion;";
+                statement = connection.prepareStatement(sql);
+            }
+
             statement.executeQuery();
             ResultSet resultSet = statement.getResultSet();
 
