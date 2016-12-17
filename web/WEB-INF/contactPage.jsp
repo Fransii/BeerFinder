@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>BeerFinder Contact</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
 
@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5122.607788801175!2d19.935471206614235!3d50.06187014040658!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd01f6c2526b37173!2sSukiennice!5e0!3m2!1spl!2spl!4v1481823399223" width="550" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe class="col-sm-12" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5122.607788801175!2d19.935471206614235!3d50.06187014040658!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd01f6c2526b37173!2sSukiennice!5e0!3m2!1spl!2spl!4v1481823399223" width="550" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

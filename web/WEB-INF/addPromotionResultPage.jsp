@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>BeerFinder Succes</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
 
@@ -75,6 +75,7 @@
         <h1 style="color:#2a75c8">Succes!</h1>
         <hr>
         <h4>Adding a new promotion was completed successfully</h4>
+        <a href="MainPageServlet" class="btn btn-lg btn-primary btn-block" role="button">OK</a>
     </div>
 
 </div><!-- /.container -->

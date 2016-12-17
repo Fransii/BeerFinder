@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>BeerFinder Find</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
 
@@ -65,7 +65,7 @@
 
     </style>
 </head>
-<body>
+<body style="margin: auto;text-align: center">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -98,54 +98,63 @@
     </div>
 </nav>
 
-<div class="container" style="width: 1000px;height: 700px;margin: auto;margin-top: 100px;">
+<div class="container" style="text-align: center; margin: auto">
 
-    <div style="text-align:center;width: 900px;height: 400px;margin: auto;margin-top: 50px;">
-
-        <form class="form-signin" action="PromotionsServlet" method="post">
-            <input type="text" name="city" placeholder="City">
-            <input type="text" name="beerName" placeholder="Beer Name">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">GET SPECIFIC PROMOTIONS</button>
+    <div style="margin: auto; width:300px; margin-top:50px;">
+        <form style="text-align:center" class="form-signin" action="PromotionsServlet" method="post">
+            <input type="text" name="city" class="form-control" placeholder="City"><br>
+            <input type="text" name="beerName" class="form-control" placeholder="Beer Name"><br>
+            <button style="margin:auto;" class="btn btn-lg btn-primary btn-block" type="submit">
+                GET SPECIFIC PROMOTIONS
+            </button>
         </form>
+    </div>
 
+</div>
+
+<div class="container" style="text-align: center;">
+
+
+    <div style="width:300px; margin:auto; margin-top:50px;">
         <form class="form-signin" action="PromotionsServlet" method="post">
             <input type="hidden" name="ALL" value="YES">
             <button class="btn btn-lg btn-primary btn-block" type="submit">GET ALL PROMOTIONS</button>
         </form>
+    </div>
 
+    <div style="text-align:center; margin: auto; margin-top: 50px;">
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" style="text-align: center">
                 <thead>
                 <tr>
-                    <th>Promotion Id</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>City</th>
-                    <th>Beer Name</th>
-                    <th>Beer Price</th>
-                    <th>Details</th>
+                    <th style="text-align: center">City</th>
+                    <th style="text-align: center">Street</th>
+                    <th style="text-align: center">Beer Name</th>
+                    <th style="text-align: center">Beer Price</th>
+                    <th style="text-align: center">Details</th>
                 </tr>
                 </thead>
                 <tbody>
                 <form method="post" action="PromotionServlet">
-                <c:forEach items="${promotions}" var="promotion">
-                    <tr>
-                        <td>${promotion.promotionId}</td>
-                        <td>${promotion.startDate}</td>
-                        <td>${promotion.endDate}</td>
-                        <td>${promotion.store.adress.city}</td>
-                        <td>${promotion.beer.name}</td>
-                        <td>${promotion.beer.price}</td>
-                        <td><input type="submit" value="${promotion.promotionId}" name="promotionId" placeholder="Details"></td>
-                    </tr>
-                </c:forEach>
+                    <c:forEach items="${promotions}" var="promotion">
+                        <tr>
+
+                            <td>${promotion.store.adress.city}</td>
+                            <td>${promotion.store.adress.street}</td>
+                            <td>${promotion.beer.name}</td>
+                            <td>${promotion.beer.price}</td>
+                            <td><input type="submit" value="${promotion.promotionId}" name="promotionId"
+                                       placeholder="Details"></td>
+                        </tr>
+                    </c:forEach>
                 </form>
                 </tbody>
             </table>
+            <div style="width:300px; margin:auto; margin-top:50px;margin-bottom: 50px;">
+                <a href="MainPageServlet" class="btn btn-lg btn-primary btn-block" role="button">< Back</a>
+            </div>
         </div>
     </div>
-</div>
-
 
 </div><!-- /.container -->
 

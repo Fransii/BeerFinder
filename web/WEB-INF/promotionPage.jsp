@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>BeerFinder Found</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
 
@@ -98,44 +98,60 @@
     </div>
 </nav>
 
-<div class="container" style="width: 1000px;height: 700px;margin: auto;margin-top: 100px;">
-
-    <div style="text-align:center;width: 900px;height: 400px;margin: auto;margin-top: 50px;">
+<div class="container" style="text-align: center; margin: auto;margin-top: 100px;">
 
 
-
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Promotion Id</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>City</th>
-                    <th>Store Name</th>
-                    <th>Store Adres</th>
-                    <th>Store Build Numer</th>
-                    <th>Beer Name</th>
-                    <th>Beer Price</th>
-                </tr>
-                </thead>
-                <tbody>
+    <div class="row" style="margin: auto">
+        <div class="col-sm-6">
+            <div class="table-responsive">
+                <table class="table" style="text-align: center">
                     <tr>
+                        <th>Promotion Id</th>
                         <td>${promotion.promotionId}</td>
+                    </tr>
+                    <tr>
+                        <th>Start Date</th>
                         <td>${promotion.startDate}</td>
+                    </tr>
+                    <tr>
+                        <th>End Date</th>
                         <td>${promotion.endDate}</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
                         <td>${promotion.store.adress.city}</td>
-                        <td>${promotion.store.adress.street}</td>
-                        <td>${promotion.store.adress.buildNumber}</td>
+                    </tr>
+                    <tr>
+                        <th>Store Name</th>
                         <td>${promotion.store.name}</td>
+                    </tr>
+                    <tr>
+                        <th>Store Adres</th>
+                        <td>${promotion.store.adress.street}</td>
+                    </tr>
+                    <tr>
+                        <th>Store Build Numer</th>
+                        <td>${promotion.store.adress.buildNumber}</td>
+                    </tr>
+                    <tr>
+                        <th>Beer Name</th>
                         <td>${promotion.beer.name}</td>
+                    </tr>
+                    <tr>
+                        <th>Beer Price</th>
                         <td>${promotion.beer.price}</td>
                     </tr>
-                </tbody>
-            </table>
-
-            <div id="googleMap" style="width:500px;height:380px;margin: auto"></div>
+                </table>
+            </div>
         </div>
+
+
+        <div class="col-sm-6" id="googleMap" style= "height:450px;margin: auto"></div>
+
+
+    </div>
+    <div style="margin: auto;margin-top:30px;width:300px;">
+        <a href="PromotionsPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Back</a>
     </div>
 </div>
 

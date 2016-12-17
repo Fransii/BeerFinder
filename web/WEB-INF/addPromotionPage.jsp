@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>BeerFinder Add</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
 
@@ -32,16 +32,16 @@
 
         function myMap() {
             var mapCanvas = document.getElementById("map");
-            var myCenter=new google.maps.LatLng(50.06222197114333,19.936991035938263);
+            var myCenter = new google.maps.LatLng(50.06222197114333, 19.936991035938263);
             var mapOptions = {center: myCenter, zoom: 12};
             var map = new google.maps.Map(mapCanvas, mapOptions);
-            google.maps.event.addListener(map, 'click', function(event) {
+            google.maps.event.addListener(map, 'click', function (event) {
                 placeMarker(map, event.latLng);
             });
         }
         var marker1;
         function placeMarker(map, location) {
-            if ( marker1 ) {
+            if (marker1) {
                 marker1.setPosition(location);
             } else {
                 marker1 = new google.maps.Marker({
@@ -60,32 +60,32 @@
             geocoder = new google.maps.Geocoder();
             var latlng = new google.maps.LatLng(lat, lng);
 
-         /*   geocoder.geocode(
-                    {'latLng': latlng},
-                    function(results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            if (results[0]) {
-                                var add= results[0].formatted_address ;
-                                var  value=add.split(",");
+            /*   geocoder.geocode(
+             {'latLng': latlng},
+             function(results, status) {
+             if (status == google.maps.GeocoderStatus.OK) {
+             if (results[0]) {
+             var add= results[0].formatted_address ;
+             var  value=add.split(",");
 
-                                count=value.length;
-                                country=value[count-1];
-                                state=value[count-2];
-                                city=value[count-3];
-                                alert("city name is: " + add);
-                            }
-                            else  {
-                                alert("address not found");
-                            }
-                        }
-                        else {
-                            alert("Geocoder failed due to: " + status);
-                        }
-                    }
-            );*/
+             count=value.length;
+             country=value[count-1];
+             state=value[count-2];
+             city=value[count-3];
+             alert("city name is: " + add);
+             }
+             else  {
+             alert("address not found");
+             }
+             }
+             else {
+             alert("Geocoder failed due to: " + status);
+             }
+             }
+             );*/
             var GEOCODING = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + '%2C' + lng + '&language=en';
 
-            $.getJSON(GEOCODING).done(function(location) {
+            $.getJSON(GEOCODING).done(function (location) {
 
                 document.getElementById("city").value = location.results[0].address_components[4].long_name;
                 document.getElementById("street").value = location.results[0].address_components[1].long_name;
@@ -97,7 +97,7 @@
             var infowindow = new google.maps.InfoWindow({
                 content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
             });
-            infowindow.open(map,marker);
+            infowindow.open(map, marker);
         }
     </script>
 
@@ -146,22 +146,48 @@
     </div>
 </nav>
 
-<div class="container" style="width: 700px;height: 700px;margin: auto;margin-top: 10px;">
+<div class="container" style="width: 500px;height: 700px;margin: auto;margin-top: 10px;">
 
-    <div style="width: 600px;height: 200px;margin: auto;margin-top: 10px;">
+    <div style="width: 500px;height: 200px;margin: auto;margin-top: 10px;">
         <form class="form-signin" method="post" action="AddPromotionServlet">
             <div class="panel panel-primary">
                 <div style="text-align:center;" class="panel-heading">
                     <h2 style="margin-top:10px;">Add Promotion</h2>
                 </div>
 
-                <div class="panel-body">
+                <div class="panel-body" style="text-align:center;">
+                    <h4>Mark the place location on map</h4>
+                    <div id="map" style="width:100%;height:350px;margin-bottom:20px;"></div>
+                    <label for="city" class="sr-only">City</label>
+                    <input type="text" id="city" class="form-control" value="${param.city}" name="city"
+                           placeholder="City"
+                           required>
+                    <br>
+                    <label for="street" class="sr-only">Street</label>
+                    <input type="text" id="street" class="form-control" value="${param.street}" name="street"
+                           placeholder="Street" required>
+                    <br>
+                    <label for="buildNumber" class="sr-only">Build Number</label>
+                    <input type="text" id="buildNumber" class="form-control" value="${param.buildNumber}"
+                           name="buildNumber"
+                           placeholder="Build Number" required>
+                    <hr>
+                    <label for="coordX" class="sr-only">CoordX</label>
+                    <input type="hidden" id="coordX" class="form-control" value="${param.coordX}" name="coordX"
+                           placeholder="CoordX" required>
+                    <label for="coordY" class="sr-only">CoordY</label>
+                    <input type="hidden" id="coordY" class="form-control" value="${param.coordY}" name="coordY"
+                           placeholder="CoordY" required>
+                    <label for="postCode" class="sr-only">Post Code</label>
+                    <input type="hidden" id="postCode" class="form-control" value="${param.street}" name="postCode"
+                           placeholder="Post Code" required>
+
                     <label for="startDate" class="sr-only">Promotion start Date</label>
-                    <input type="text" id="startDate" class="form-control" value="${param.startDate}" name="startDate"
+                    <input type="date" id="startDate" class="form-control" value="${param.startDate}" name="startDate"
                            placeholder="Promotion start date" required autofocus>
                     <br>
                     <label for="endDate" class="sr-only">Promotion end Date</label>
-                    <input type="text" id="endDate" class="form-control" value="${param.endDate}" name="endDate"
+                    <input type="date" id="endDate" class="form-control" value="${param.endDate}" name="endDate"
                            placeholder="Promotion end date" required>
                     <br>
                     <label for="storeName" class="sr-only">StoreName</label>
@@ -186,39 +212,8 @@
                     <input type="text" id="beerPrice" class="form-control" value="${param.beerPrice}" name="beerPrice"
                            placeholder="Beer Price" required>
                     <br>
-                    Mark the place location on map! :)
-                    <br>
-                    <br>
-                    <label for="city" class="sr-only">City</label>
-                    <input type="text" id="city" class="form-control" value="${param.city}" name="city"
-                           placeholder="City"
-                           required>
-                    <br>
-                    <label for="street" class="sr-only">Street</label>
-                    <input type="text" id="street" class="form-control" value="${param.street}" name="street"
-                           placeholder="Street" required>
-                    <br>
-                    <label for="buildNumber" class="sr-only">Build Number</label>
-                    <input type="text" id="buildNumber" class="form-control" value="${param.buildNumber}"
-                           name="buildNumber"
-                           placeholder="Build Number" required>
-                    <br>
-                    <label for="coordX" class="sr-only">CoordX</label>
-                    <input type="hidden" id="coordX" class="form-control" value="${param.coordX}" name="coordX"
-                           placeholder="CoordX" required>
-                    <br>
-                    <label for="coordY" class="sr-only">CoordY</label>
-                    <input type="hidden" id="coordY" class="form-control" value="${param.coordY}" name="coordY"
-                           placeholder="CoordY" required>
-                    <br>
-                    <label for="postCode" class="sr-only">Post Code</label>
-                    <input type="hidden" id="postCode" class="form-control" value="${param.street}" name="postCode"
-                           placeholder="Post Code" required>
-                    <br>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Add!</button>
                     <span class="error">${errors.blad}</span>
-
-                    <div id="map" style="width:100%;height:500px;"></div>
 
                 </div>
             </div>
@@ -227,7 +222,8 @@
 
 
 </div><!-- /.container -->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic&callback=myMap" type="text/javascript"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyBa3bPy64RClM1XkqBmx5-amTMqwd1B3ic&callback=myMap"
+        type="text/javascript"></script>
 <script type="text/javascript">
 
     <%@include file="../resources/bootstrap/js/bootstrap.min.js" %>
