@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeerFinder</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
@@ -98,29 +99,31 @@
     </div>
 </nav>
 
-<div class="container" style="width: 600px;height: 300px;margin: auto;margin-top: 100px;">
+<div class="container" >
 
-    <div style="text-align:center;width: 300px;height: 300px;margin: auto;margin-top: 50px;">
+    <div class="panel-default col-lg-12">
         <form class="form-signin">
-            <div>
-                <h4><a href="PromotionsPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Check out promotions!</a></h4>
+            <div class="panel-body">
+                <h4 class="col-lg-4 col-lg-offset-4 col-xs-12"><a href="PromotionsPageServlet"
+                       class="btn btn-lg btn-primary btn-block" role="button">Check out promotions!</a>
+                </h4>
             </div>
 
             <c:if test="${sessionScope.email == null}">
-                <div class="panel panel-danger"
-                     style="width: 295px;height: 180px;margin: auto;margin-top: 50px;">
+                <div class="panel panel-danger col-lg-4 col-lg-offset-4"  >
                     <div class="panel-heading">
                         <h4>You must be logged to add new promotion!</h4>
                     </div>
                     <div class="panel-body">
-                        <h4><a href="LoginPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Login</a>
+                        <h4 class="col-lg-12"><a href="LoginPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Login</a>
                         </h4>
                     </div>
                 </div>
             </c:if>
 
             <c:if test="${sessionScope.email != null }">
-                <h4><a href="AddPromotionPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Add new
+                <h4 class="col-lg-4 col-lg-offset-4 col-xs-12">
+                    <a href="AddPromotionPageServlet" class="btn btn-lg btn-primary btn-block" role="button">Add new
                     promotion!</a></h4>
             </c:if>
 

@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeerFinder Find</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
@@ -98,9 +99,9 @@
     </div>
 </nav>
 
-<div class="container" style="text-align: center; margin: auto">
+<div class="container panel-body" style="text-align: center; margin: auto">
 
-    <div style="margin: auto; width:300px; margin-top:50px;">
+    <div class="col-lg-12">
         <form style="text-align:center" class="form-signin" action="PromotionsServlet" method="post">
             <input type="text" name="city" class="form-control" placeholder="City"><br>
             <input type="text" name="beerName" class="form-control" placeholder="Beer Name"><br>
@@ -115,7 +116,7 @@
 <div class="container" style="text-align: center;">
 
 
-    <div style="width:300px; margin:auto; margin-top:50px;">
+    <div class="col-lg-12">
         <form class="form-signin" action="PromotionsServlet" method="post">
             <input type="hidden" name="ALL" value="YES">
             <button class="btn btn-lg btn-primary btn-block" type="submit">GET ALL PROMOTIONS</button>
@@ -124,7 +125,7 @@
 
     <div style="text-align:center; margin: auto; margin-top: 50px;">
         <div class="table-responsive">
-            <table class="table" style="text-align: center">
+            <table class="table table-bordered text-center">
                 <thead>
                 <tr>
                     <th style="text-align: center">City</th>
@@ -150,7 +151,7 @@
                 </form>
                 </tbody>
             </table>
-            <div style="width:300px; margin:auto; margin-top:50px;margin-bottom: 50px;">
+            <div style="">
                 <a href="MainPageServlet" class="btn btn-lg btn-primary btn-block" role="button">< Back</a>
             </div>
         </div>

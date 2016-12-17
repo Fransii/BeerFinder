@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeerFinder LogIn</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
@@ -69,9 +70,9 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container col-lg-4 col-lg-offset-4">
 
-    <div class="container">
+    <div class="panel-default">
         <div class="jumbotron" style="background-color:#2a75c8;margin-top:2%;color:white;">
             <div class="row">
                 <div class="col-sm-12 col-lg-12" style="text-align: center">
@@ -82,7 +83,7 @@
         </div>
     </div>
 
-    <div style="width: 300px;height: 300px;margin: auto;margin-top: 20px;">
+    <div class="col-lg-12">
         <form class="form-signin" method="post" action="LoginServlet">
             <label for="email" class="sr-only">Email address</label>
             <input type="email" id="email" class="form-control" value="${param.email}" name="email"

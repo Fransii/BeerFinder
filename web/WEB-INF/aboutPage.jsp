@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeerFinder About</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
@@ -113,14 +114,14 @@
             <div class="col-sm-12">
                 <div class="well">
                     <h3 style="line-height:20%;"><i class="fa fa-home fa-1x" style="line-height:6%;color:#339966"></i>What you will find here:</h3>
-                    <p style="margin-top:3%;line-height:25%">
+                    <p >
                         The best promotions of alcohol in your area!
                     </p><br>
                     <h3 style="line-height:20%;"><i class="fa fa-home fa-1x" style="line-height:6%;color:#339966"></i>You can also:</h3>
-                    <p style="margin-top:3%;line-height:25%">
+                    <p >
                         Adding places where is an opportunity to buy cheap alcohol!
                     </p>
-                    <p style="margin-top:3%;line-height:25%">
+                    <p>
                         Rate and comment promotions found by others people!
                     </p>
                 </div>

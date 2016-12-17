@@ -9,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeerFinder Add</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
@@ -146,9 +147,9 @@
     </div>
 </nav>
 
-<div class="container" style="width: 500px;height: 700px;margin: auto;margin-top: 10px;">
+<div class="container panel-default col-lg-12" >
 
-    <div style="width: 500px;height: 200px;margin: auto;margin-top: 10px;">
+    <div class="panel-body col-lg-12">
         <form class="form-signin" method="post" action="AddPromotionServlet">
             <div class="panel panel-primary">
                 <div style="text-align:center;" class="panel-heading">
