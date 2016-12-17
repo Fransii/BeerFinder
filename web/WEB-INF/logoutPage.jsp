@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta http-equiv="Refresh" content="5;url=/">
-    <title>$Title$</title>
+    <title>BeerFinder ByeBye</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"
             type="text/javascript"></script>
     <%
